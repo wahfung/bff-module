@@ -6,7 +6,7 @@ module.exports = {
       script: "./app.ts",
       instances: 1,
       exec_mode: "cluster",
-      interpreter: "./node_modules/.bin/ts-node-dev",
+      interpreter: "./node_modules/.bin/ts-node", // 使用本地 ts-node
       autorestart: true,
       watch: true,
       env: {
