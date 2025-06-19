@@ -41,9 +41,6 @@ container.loadModules([`${__dirname}/services/*.ts`], {
 container.register({
   // 数据库连接 - 单例
   database: asClass(Database).singleton(),
-  
-  // 服务层 - 作用域单例
-  userService: asClass(UserService).scoped()
 })
 app.use(bodyParser())
 // 跨域
