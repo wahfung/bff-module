@@ -67,6 +67,6 @@ app.use(historyApiFallback({ index: '/', whiteList: ['/api'] }));
 // 获取路由
 app.use(loadControllers(`${__dirname}/routers/*.ts`))
 
-app.listen(port, () => {
+app.listen(port, '0.0.0.0' ,() => {
   console.log('Server BFF启动成功');
 });

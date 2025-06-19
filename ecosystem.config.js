@@ -1,26 +1,25 @@
-// pm2.config.js
 module.exports = {
   apps: [
     {
       name: "bff-module",
       script: "./app.ts",
+      interpreter: "ts-node",
       instances: 1,
-      exec_mode: "cluster",
-      interpreter: "./node_modules/.bin/ts-node", // 使用本地 ts-node
       autorestart: true,
-      watch: true,
+      watch: false,
+      max_memory_restart: "1G",
       env: {
         NODE_ENV: "development",
-        TS_NODE_PROJECT: "./tsconfig.json",
+        TS_NODE_TRANSPILE_ONLY: "true",
       },
       env_production: {
         NODE_ENV: "production",
-        TS_NODE_PROJECT: "./tsconfig.json",
+        TS_NODE_TRANSPILE_ONLY: "true",
       },
-      error_file: "./logs/error.log",
+      error_file: "./logs/err.log",
       out_file: "./logs/out.log",
-      merge_logs: true,
-      log_date_format: "YYYY-MM-DD HH:mm:ss",
+      log_file: "./logs/combined.log",
+      time: true,
     },
   ],
 };
